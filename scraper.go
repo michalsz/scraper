@@ -4,10 +4,16 @@ import
 (
 	"fmt"
 	"./page"
+	"os"
+	//"strconv"
 )
 
 func main(){
-  p := page.Page{"http://xing.com"}
-  fmt.Println(p.Url)
-  page.PageBody(p)
+	url := os.Args[1]
+	fmt.Println(url)
+	wwwPage := page.Page{url, ""}
+	for i := 0; i < 5; i++ {
+	  wwwPage.ReadPage()
+	  fmt.Println(wwwPage.PageBody())
+    }
 }

@@ -1,16 +1,28 @@
 package page
 
 import (
+	"strings"
 	"net/http"
 	"fmt"
 	"io/ioutil"
 )
 
-type Page struct {
-	Url string "xing.de"
+
+type Content interface{
+	PageBody() string
+	RedayPage() string
 }
 
-func PageBody(page Page){
+type Page struct {
+	Url string ""
+	Body string ""
+}
+
+func (page Page) PageBody() string{
+	return page.Body
+}
+
+func (page *Page) ReadPage(){
 	resp, err := http.Get(page.Url)
 	if err != nil{
 		fmt.Println("error")
@@ -21,5 +33,9 @@ func PageBody(page Page){
 	if err != nil{
 		fmt.Println("error")
 	}
-	fmt.Println(string(body))
+	page.Body = string(body)
+}
+
+func IsHttps(page Page) bool{
+	return strings.Contains(page.Url, "https")
 }
