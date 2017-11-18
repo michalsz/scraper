@@ -1,9 +1,10 @@
 package main
 
 import (
-	"./page"
 	"fmt"
 	"os"
+
+	"github.com/michalsz/scraper/page"
 	//"strconv"
 )
 
