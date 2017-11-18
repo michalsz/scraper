@@ -1,26 +1,26 @@
 package page_test
 
 import (
-	"testing"
 	"github.com/michalsz/scraper/page"
+	"testing"
 )
 
-func TestBody(t *testing.T){
-  p := page.Page{"http://google.com", ""}
-  expected := ""
-  actual := p.Body
-  if actual != expected {
-	  t.Error("fail")
-  }
+func TestBody(t *testing.T) {
+	p := page.Page{"http://google.com", ""}
+	expected := ""
+	actual := p.Body
+	if actual != expected {
+		t.Error("fail")
+	}
 }
 
-func TestIsHttps(t *testing.T){
-  p := page.Page{"http://google.com", ""}
-  actual := page.IsHttps(p)
-  expected := false
-  if actual != expected {
-	t.Error("Test failed")
-  }
+func TestIsHttps(t *testing.T) {
+	p := page.Page{"http://google.com", ""}
+	actual := page.IsHttps(p)
+	expected := false
+	if actual != expected {
+		t.Error("Test failed")
+	}
 }
 
 func BenchmarkIsHttps(b *testing.B) {

@@ -1,19 +1,18 @@
 package main
 
-import
-(
-	"fmt"
+import (
 	"./page"
+	"fmt"
 	"os"
 	//"strconv"
 )
 
-func main(){
+func main() {
 	url := os.Args[1]
 	fmt.Println(url)
 	wwwPage := page.Page{url, ""}
 	for i := 0; i < 5; i++ {
-	  wwwPage.ReadPage()
-	  fmt.Println(wwwPage.PageBody())
-    }
+		wwwPage.ReadPage()
+		fmt.Println(wwwPage.PageBody())
+	}
 }
